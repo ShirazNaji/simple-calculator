@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+   
+          <meta charset="UTF-8"/>
+          <meta name="viewport" content="width=device-width ,initial-scale=1.0" />
+          <title>calculator</title>
+        
+        <style>
+            body{
+               display: flex;
+               align-items: center;
+               justify-content: center;
+            }
+           
+            input, select{border: 2px solid black}
+            h1{
+                font-family: cursive;
+                text-align: center;
+            }
+            input,label{
+                    display: block;
+                    margin-bottom: 9px;
+                }
+
+            
+        
+        </style>
+        
+        
+        
+    </head>
+    
+    
+    <body>
+        
+        
+        <div id="app">
+            <h1>calculator</h1>
+            <label>Enter Number 1</label>
+            <input type="text"  v-on:input="updateleft" /> 
+            <label>Enter Number 2</label>
+            <input type="text"  v-on:input="updateright"/><br> 
+            <label>sum = {{sum}}</label><br>
+            <label>sub = {{sub}}</label><br>
+            <label>mult = {{mult}}</label><br>
+            <label>divi = {{divi}}</label>
+    
+        </div>
+    
+    <!--  <script src="vue.js"></script>-->
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>   
+        
+    <script>
+        
+        
+         var inst1 =  new Vue(
+       {
+            el:"#app",
+            
+            data:{
+                val1:0,
+                val2: 0,
+                sum:0,
+                sub:0,
+                mult:0,
+                divi:0,
+            },
+           methods :{
+                updateleft : function(e){
+                    this.val1 = parseFloat(e.target.value);
+                    this.sum = this.val1 + this.val2;
+                    this.sub = this.val1 - this.val2;
+                    this.mult = this.val1 * this.val2;
+                    this.divi = this.val1 / this.val2;
+                    
+                },
+                
+                
+                updateright : function(e){
+                    this.val2 = parseFloat(e.target.value);
+                    this.sum = this.val2 + this.val1;
+                    this.sub = this.val1 - this.val2;
+                    this.mult = this.val1 * this.val2;
+                    this.divi = this.val1 / this.val2;
+                    
+                },
+           }
+                
+           
+           
+            })
+        
+    </script>
+     </body>
+</html>
